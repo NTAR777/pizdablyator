@@ -23,7 +23,7 @@ pip install -r requirements.txt
 BOT_TOKEN=your_actual_bot_token_here
 ```
 
-# Если linux arch или просто хотим окружение
+## Если linux arch или просто хотим окружение
 1. Создаём окружение
 ```bash
 python -m venv venv
