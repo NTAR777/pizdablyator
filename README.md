@@ -29,6 +29,7 @@ BOT_TOKEN=your_actual_bot_token_here
 python -m venv venv
 ```
 2. Запускаем окружение:
+
 Для Windows
 ```bash
 venv\Scripts\activate
