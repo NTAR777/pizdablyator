@@ -36,7 +36,7 @@ venv\Scripts\activate
 ```
 Для Linux/MacOS
 ```bash
-venv\Scripts\activate
+source venv/bin/activate
 ```
 3. Устанавливаем зависимости в окружение:
 ```bash
