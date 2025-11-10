@@ -14,14 +14,14 @@ logging.basicConfig(
 
 # Получаем настройки из переменных окружения
 BOT_TOKEN = os.getenv('BOT_TOKEN')
-RESPONSE_WORD = os.getenv('RESPONSE_WORD', 'Пизда.')  # По умолчанию "Нет"
+RESPONSE_WORD = os.getenv('RESPONSE_WORD', 'Пизда.')  # По умолчанию "Пизда."
 
 async def handle_message(update, context):
     """Обработчик входящих сообщений"""
     message_text = update.message.text.strip().lower()
     
     # Проверяем, содержит ли сообщение "да"
-    if message_text == "да" or "Да":
+    if "да" in message_text:
         # Отвечаем на сообщение
         await update.message.reply_text(RESPONSE_WORD)
 
@@ -35,7 +35,7 @@ def main():
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
     
     # Запускаем бота
-    print(f"Пиздаблятор готов ебашить")
+    print("Пиздаблятор готов ебашить")
     
     application.run_polling()
 
