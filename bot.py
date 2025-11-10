@@ -15,17 +15,38 @@ logging.basicConfig(
 
 # Получаем настройки из переменных окружения
 BOT_TOKEN = os.getenv('BOT_TOKEN')
-RESPONSE_WORD = os.getenv('RESPONSE_WORD', 'Пизда.')  # По умолчанию "Пизда."
+
+# Список слов и ответов на них
+WORD_RESPONSES = {
+    "да": "Пизда.",
+    "нет": "Пидора ответ.",
+    "возможно": "Хуй знает.",
+    "может быть": "А может и не быть.",
+    "конечно": "Ебать ты уверен.",
+    "точно": "Точно пизда.",
+    "правда": "Пиздеж.",
+    "спасибо": "На хуй.",
+    "привет": "Пошёл на хуй.",
+    "здравствуй": "Здравствуй иди нахуй.",
+    "пока": "Пока, пидор.",
+    "хорошо": "Хуёво.",
+    "отлично": "Хуёво.",
+    "класс": "Хуёво.",
+    "понятно": "Нехуй не понятно.",
+    "ясно": "Ясно, пизда.",
+}
 
 async def handle_message(update, context):
     """Обработчик входящих сообщений"""
-    message_text = update.message.text.strip()
+    message_text = update.message.text.strip().lower()
     
-    # Проверяем, содержит ли сообщение отдельное слово "да"
-    # Используем регулярное выражение для поиска целого слова
-    if re.search(r'\bда\b', message_text, re.IGNORECASE):
-        # Отвечаем на сообщение
-        await update.message.reply_text(RESPONSE_WORD)
+    # Проверяем каждое слово из списка
+    for word, response in WORD_RESPONSES.items():
+        # Используем регулярное выражение для поиска целого слова
+        if re.search(r'\b' + re.escape(word) + r'\b', message_text, re.IGNORECASE):
+            # Отвечаем на сообщение
+            await update.message.reply_text(response)
+            break  # Прерываем после первого найденного слова
 
 def main():
     """Основная функция"""
@@ -38,6 +59,9 @@ def main():
     
     # Запускаем бота
     print("Пиздаблятор готов ебашить")
+    print("Отслеживаемые слова:")
+    for word, response in WORD_RESPONSES.items():
+        print(f"  '{word}' -> '{response}'")
     
     application.run_polling()
 
