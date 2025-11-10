@@ -6,5 +6,14 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone <your-repo-url>
-cd telegram-bot
+git clone https://github.com/NTAR777/pizdablyator
+
+cd pizdablyator
+
+pip install -r requirements.txt
+
+2. Создайте в папке .env
+
+Вставьте туда:
+```
+BOT_TOKEN=your_actual_bot_token_here
