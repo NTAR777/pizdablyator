@@ -7,9 +7,11 @@
 1. Клонируйте репозиторий:
 ```bash
 git clone https://github.com/NTAR777/pizdablyator
-
+```
+```bash
 cd pizdablyator
-
+```
+```bash
 pip install -r requirements.txt
 ```
 2. Создайте в папке .env
