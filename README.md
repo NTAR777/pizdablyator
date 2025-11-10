@@ -8,9 +8,11 @@
 ```bash
 git clone https://github.com/NTAR777/pizdablyator
 ```
+
 ```bash
 cd pizdablyator
 ```
+
 ```bash
 pip install -r requirements.txt
 ```
