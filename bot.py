@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 from dotenv import load_dotenv
 from telegram.ext import Application, MessageHandler, filters
 
@@ -18,10 +19,11 @@ RESPONSE_WORD = os.getenv('RESPONSE_WORD', 'Пизда.')  # По умолчан
 
 async def handle_message(update, context):
     """Обработчик входящих сообщений"""
-    message_text = update.message.text.strip().lower()
+    message_text = update.message.text.strip()
     
-    # Проверяем, содержит ли сообщение "да"
-    if "да" in message_text:
+    # Проверяем, содержит ли сообщение отдельное слово "да"
+    # Используем регулярное выражение для поиска целого слова
+    if re.search(r'\bда\b', message_text, re.IGNORECASE):
         # Отвечаем на сообщение
         await update.message.reply_text(RESPONSE_WORD)
 
