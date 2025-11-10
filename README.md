@@ -11,9 +11,10 @@ git clone https://github.com/NTAR777/pizdablyator
 cd pizdablyator
 
 pip install -r requirements.txt
-
+```
 2. Создайте в папке .env
 
 Вставьте туда:
-```
+```.env
 BOT_TOKEN=your_actual_bot_token_here
+```
