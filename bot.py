@@ -14,11 +14,16 @@ logging.basicConfig(
 )
 
 # Получаем настройки из переменных окружения
-BOT_TOKEN = os.getenv('BOT_TOKEN')
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+BOT_TOKEN = os.getenv("TOKEN")
 
 # Список слов и ответов на них
 WORD_RESPONSES = {
     "да": "Пизда.",
+    "Елисей": "Лох",
     "нет": "Пидора ответ.",
     "возможно": "Хуй знает.",
     "может быть": "А может и не быть.",
